@@ -23,7 +23,10 @@ const businessSchema = new Schema({
   storeZipcode: {
     type: Number,
     required: true
-  }, 
+  },
+  nationality: {
+    type: String
+  },
   patrons: [{type: Schema.Types.ObjectId, ref: 'Profile' }], 
   customerProductOptions: [{type: Schema.Types.ObjectId, ref: 'Product' }], 
   productsPendingApproval: [{type: Schema.Types.ObjectId, ref: 'Product' }], 
