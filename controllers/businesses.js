@@ -63,6 +63,7 @@ async function create(req, res) {
     //Skipping auth for now just want the functionality to work
     // console.log(req.user)
     req.body.businessOwnerName = req.user.profile
+    req.body.nationality? req.body.nationality = req.body.nationality : req.body.nationality = "usa"
     Business.create(req.body)
     .then(business => {
       Business.findById(business._id)
