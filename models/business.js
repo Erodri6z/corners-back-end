@@ -25,7 +25,7 @@ const businessSchema = new Schema({
     required: true
   },
   nationality: {
-    type: {String},
+    type: [String],
     default: []
   },
   patrons: [{type: Schema.Types.ObjectId, ref: 'Profile' }], 
