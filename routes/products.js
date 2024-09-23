@@ -9,7 +9,7 @@ router.use(decodeUserFromToken)
 
 
 router.get("/", productsCtrl.index)
-router.post("/create-new", productsCtrl.create)
+router.post("/add-product", productsCtrl.create)
 router.delete("/delete/:id", productsCtrl.delete)
 
 
