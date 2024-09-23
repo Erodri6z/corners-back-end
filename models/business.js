@@ -30,22 +30,6 @@ const businessSchema = new Schema({
   businessHours: String,
   authorizationLevel: {
     type: Number,
-<<<<<<< HEAD
-    required: true
-  },
-  nationality: {
-    type: [String],
-    default: []
-  },
-  patrons: [{type: Schema.Types.ObjectId, ref: 'Profile' }], 
-  customerProductOptions: [{type: Schema.Types.ObjectId, ref: 'Product' }], 
-  productsPendingApproval: [{type: Schema.Types.ObjectId, ref: 'Product' }], 
-  recentlyAddedProducts: [{type: Schema.Types.ObjectId, ref: 'Product' }], 
-  rejectedProducts: [{type: Schema.Types.ObjectId, ref: 'Product' }], 
-  productsOnSale: [{ products: {type: Schema.Types.ObjectId, ref: 'Product' }, count: Number}], 
-  }, {
-    timestamps: true,
-=======
     default: 200
   },
   patronsPending: [{
@@ -68,7 +52,6 @@ const businessSchema = new Schema({
   }],
 }, {
   timestamps: true
->>>>>>> f1c37cb1f80dfd90dfe052e8b91e424bc5fd2031
 })
 
 const Business = mongoose.model('Business', businessSchema)

@@ -45,7 +45,7 @@ function checkPatron(req, res, next) {
 
 function checkAdminOrStoreOwner(req, res, next) {
   if (req.user && (req.user.profile.authorizationLevel === 101 || 
-                   (req.user.profile.authorizationLevel >= 200 && req.user.profile.authorizationLevel <= 299))) {
+    (req.user.profile.authorizationLevel >= 200 && req.user.profile.authorizationLevel <= 299))) {
     return next()
   } else {
     return res.status(403).json({ err: 'Forbidden: Admins or Store Owners only' })
@@ -54,7 +54,7 @@ function checkAdminOrStoreOwner(req, res, next) {
 
 function checkAdminOrPatron(req, res, next) {
   if (req.user && (req.user.profile.authorizationLevel === 101 || 
-                   req.user.profile.authorizationLevel < 200)) {
+    req.user.profile.authorizationLevel < 200)) {
     return next()
   } else {
     return res.status(403).json({ err: 'Forbidden: Admins or Patrons only' })
