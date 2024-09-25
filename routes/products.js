@@ -9,6 +9,7 @@ router.use(decodeUserFromToken)
 
 
 router.get("/", productsCtrl.index)
+// router.get("/:id", productsCtrl.show)
 
 router.post("/add-product", isLoggedIn, productsCtrl.create)
 router.delete("/delete/:id", checkAdminOrStoreOwner,  productsCtrl.delete)
