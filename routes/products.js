@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { decodeUserFromToken,  isLoggedIn, checkAdminOrStoreOwner, checkAdmin  } from "../middleware/auth.js"
+import { decodeUserFromToken, checkAuth, checkAdminOrStoreOwner, checkAdmin  } from "../middleware/auth.js"
 import * as productsCtrl from "../controllers/product.js"
 
 const router = Router()
@@ -9,9 +9,8 @@ router.use(decodeUserFromToken)
 
 
 router.get("/", productsCtrl.index)
-// router.get("/:id", productsCtrl.show)
-
-router.post("/add-product", isLoggedIn, productsCtrl.create)
+router.get("/:id", productsCtrl.show)
+router.post("/add-product", checkAuth, productsCtrl.create)
 router.delete("/delete/:id", checkAdminOrStoreOwner,  productsCtrl.delete)
 
 
