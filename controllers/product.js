@@ -12,6 +12,18 @@ async function index(req, res) {
   }
 }
 
+async function show(req, res) {
+  try{
+    const product = await Product.findById(req.params.id)
+
+    res.json(product)
+
+  } catch (err){
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
 async function create(req, res) {
   // no auth yet until we figure out what twe will do with products and admins'
 
@@ -41,6 +53,7 @@ async function deleteProduct(req, res){
 
 export {
   index,
+  show,
   create,
   deleteProduct as delete
 }
