@@ -77,7 +77,8 @@ const productSchema = new Schema({
   },
   productApproved: {
     type: Boolean,
-    required: true
+    required: true,
+    default: false
   },
   reviews: [commentSchema],
   }, {
