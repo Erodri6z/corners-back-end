@@ -44,11 +44,11 @@ const productSchema = new Schema({
     trim: true,
     maxlength: 500
   },
-  category: {
-    type: String,
-    required: true,
-    trim: true
-  },
+  // category: {
+  //   type: String,
+  //   required: true,
+  //   trim: true
+  // },
   sku: {
     type: String,
     unique: true,
