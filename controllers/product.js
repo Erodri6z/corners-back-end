@@ -28,9 +28,10 @@ async function create(req, res) {
   // no auth yet until we figure out what twe will do with products and admins'
 
   try{
-
+    req.body.productPendingApproval = true
     const product = await Product.create(req.body)
     console.log("this is working")
+    
     res.json(product)
     
   } catch(err) {
