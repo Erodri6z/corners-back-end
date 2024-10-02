@@ -11,6 +11,8 @@ router.use(decodeUserFromToken)
 router.get("/", productsCtrl.index)
 router.get("/:id", productsCtrl.show)
 router.post("/add-product", checkAuth, productsCtrl.create)
+// only admins should be allowed to edit
+router.put("(/edit/:id", checkAdmin, productsCtrl.edit)
 router.delete("/delete/:id", checkAuth, checkAdminOrStoreOwner,  productsCtrl.delete)
 
 

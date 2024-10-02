@@ -73,6 +73,7 @@ async function deleteProduct(req, res){
 export {
   index,
   show,
+  edit,
   create,
   deleteProduct as delete
 }
