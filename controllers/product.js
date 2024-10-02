@@ -39,6 +39,24 @@ async function create(req, res) {
   }
 }
 
+async function edit(req, res) {
+  // I was going to set this up with checks to see if the user trying to is an admin but then i realized that middleware already does that.
+  // might add it anyways
+  try {
+    const updatedProduct = await Product.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new : true
+      }
+    )
+    res.status(200).json(updatedProduct)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
 async function deleteProduct(req, res){
   // no auth yet until we figure out what twe will do with products and admins'
   try{
