@@ -13,7 +13,7 @@ router.get("/:id", productsCtrl.show)
 router.post("/add-product", checkAuth, productsCtrl.create)
 // only admins should be allowed to edit
 router.put("/edit/:id", checkAdmin, productsCtrl.edit)
-// router.patch("/:id/approve", checkAdmin, productsCtrl.approve)
+router.patch("/:id/approve", productsCtrl.approve)
 // router.patch("/:id/deny", checkAdmin, productsCtrl.deny)
 router.delete("/delete/:id", checkAuth, checkAdminOrStoreOwner,  productsCtrl.delete)
 

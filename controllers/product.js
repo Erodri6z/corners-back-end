@@ -61,8 +61,10 @@ async function edit(req, res) {
 async function approve(req, res) {
   try {
     const approvedProduct = await Product.findByIdAndUpdate(
-      req.params.id.productApproved = true,
+      req.params.id,
       {
+        prodructApproved: true
+      },{
         new : true
       }
     ) 
@@ -72,6 +74,8 @@ async function approve(req, res) {
     res.status(500).json(err)
   }
 }
+
+
 
 async function deleteProduct(req, res){
   // no auth yet until we figure out what twe will do with products and admins'
