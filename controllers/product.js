@@ -75,7 +75,23 @@ async function approve(req, res) {
   }
 }
 
+async function deny(req, res) {
+  try {
+    const deniedProduct = await Product.findByIdAndUpdate(
+      res.params.id,
+      {
+        prodructApproved: false
+      },{
+        new: true
+      }
+    )
 
+    res.status(200).json(deniedProduct)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
 
 async function deleteProduct(req, res){
   // no auth yet until we figure out what twe will do with products and admins'
