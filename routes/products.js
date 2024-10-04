@@ -15,6 +15,9 @@ router.post("/add-product", checkAuth, productsCtrl.create)
 router.put("/edit/:id", checkAdmin, productsCtrl.edit)
 router.patch("/:id/approve", productsCtrl.approve)
 // router.patch("/:id/deny", checkAdmin, productsCtrl.deny)
+
+
+//TODO: Add  a request counter
 router.delete("/delete/:id", checkAuth, checkAdminOrStoreOwner,  productsCtrl.delete)
 
 
