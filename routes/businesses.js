@@ -11,6 +11,8 @@ router.post("/register", checkAuth, businessCtrl.create)
 router.put("/edit/:id", checkAuth, businessCtrl.edit)
 router.delete("/:id", checkAuth, businessCtrl.delete)
 router.put("/add-product/:id", checkAuth, businessCtrl.addProduct)
+// router.put("/approve-product/:id", checkAuth, businessCtrl.approveProduct)
+// router.put("/denyProduct/:id", checkAuth, businessCtrl.denyProduct)
 router.put("/delete-all/:id", checkAuth, businessCtrl.clearProducts)
 router.put("/edit-stock/:id", checkAuth, businessCtrl.editStock)
 

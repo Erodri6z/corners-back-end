@@ -59,6 +59,7 @@ async function edit(req, res) {
 
 
 async function approve(req, res) {
+  // This May need to get reworked when we figure out what being denied really means
   try {
     const approvedProduct = await Product.findByIdAndUpdate(
       req.params.id,
@@ -76,6 +77,7 @@ async function approve(req, res) {
 }
 
 async function deny(req, res) {
+  // This May need to get reworked when we figure out what being denied really means
   try {
     const deniedProduct = await Product.findByIdAndUpdate(
       res.params.id,
