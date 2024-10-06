@@ -11,6 +11,7 @@ router.post("/register", checkAuth, businessCtrl.create)
 router.put("/edit/:id", checkAuth, businessCtrl.edit)
 router.delete("/:id", checkAuth, businessCtrl.delete)
 router.put("/add-product/:id", checkAuth, businessCtrl.addProduct)
+// router.put("/request-product", checkAuth, businessCtrl.requestProduct)
 
 // These routes will be used for approve or deny products to the businesses inventory
 
