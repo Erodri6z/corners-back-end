@@ -115,15 +115,17 @@ async function deleteBusiness(req, res) {
   }
 }
 
-async function addProduct(req, res) {
+async function approveProduct(req, res) {
   try{
     const business = await Business.findById(req.params.id)
-    const product = await Product.findById(req.body)
+    const product = await Product.findById(req.body._id)
     console.log(product)
 
     if (!business || !product) {
       return res.status(404).json({ message: 'Not found' })
     }
+
+    product.productApproved = true
 
     business.productsOnSale.push(product)
     console.log(business)
@@ -197,13 +199,14 @@ async function editStock(req, res) {
   } 
 }
 
+
 export { 
   create,
   show,
   index,
   edit,
   deleteBusiness as delete,
-  addProduct,
+  approveProduct,
   clearProducts,
   editStock
   }

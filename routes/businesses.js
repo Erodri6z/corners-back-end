@@ -10,14 +10,14 @@ router.get("/:id", businessCtrl.show)
 router.post("/register", checkAuth, businessCtrl.create)
 router.put("/edit/:id", checkAuth, businessCtrl.edit)
 router.delete("/:id", checkAuth, businessCtrl.delete)
-router.put("/add-product/:id", checkAuth, businessCtrl.addProduct)
+router.put("/add-product/:id", checkAuth, businessCtrl.approveProduct)
 // router.put("/request-product", checkAuth, businessCtrl.requestProduct)
 
 // These routes will be used for approve or deny products to the businesses inventory
 
 // this one should approve the product to the businesses inventory. adding a copy of the item to the inventory and changing its approval to true
 
-// router.put("/approve-product/:id", checkAuth, businessCtrl.approveProduct)
+// router.put("/:id/approve-product/", checkAuth, businessCtrl.approveProduct)
 
 // this one should deny the item from the requested array, removing it from the array
 
