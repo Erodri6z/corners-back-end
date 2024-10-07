@@ -19,7 +19,7 @@ router.post('/admin/approve-store-owner/:id', checkAuth, profilesCtrl.approveSto
 
 
 // Patron Routes
-// router.put('/:businessId/request-item', checkAuth, profilesCtrl.requestItem)
+router.put('/:businessId/request-item', checkAuth, profilesCtrl.requestProduct)
 router.put('/:id/add-photo', checkAuth, profilesCtrl.addPhoto)
 
 export { router }

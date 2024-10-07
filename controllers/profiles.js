@@ -1,4 +1,5 @@
 import { Profile } from '../models/profile.js'
+import { Product } from '../models/product.js'
 import { v2 as cloudinary } from 'cloudinary'
 
 async function index(req, res) {
@@ -34,4 +35,35 @@ async function addPhoto(req, res) {
   }
 }
 
-export { index, addPhoto, approveStore }
+async function requestProduct(req, res) {
+  const business = req.params.businessId
+  const product  = await Product.findById(req.body._id)
+
+  
+  try {
+    console.log("Business = ", business)
+    console.log("Product = ", product)
+  
+
+    if (business.productsRequested.includes(product)) {
+      console.log("Bro this is already on the todo list")
+    }
+    
+    if (business.products.includes(product)) {
+      console.log("This is already sold here")
+      res.status(500).json("This is already sold here")
+    }
+
+    business.productsRequested.push(product)
+    await business.save()
+
+    res.status(200).json(" Item is now requested and hopefully gets accepted")
+
+
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
+export { index, addPhoto, approveStore, requestProduct }
