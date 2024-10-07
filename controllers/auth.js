@@ -51,7 +51,7 @@ async function storeOwnerSignUp(req, res) {
     const authorizationLevel = 200
 
     // Ensure store name and other store-related fields are present
-    if (!req.body.storeName) {
+    if (!req.body.businessName) {
       throw new Error('Store name is required for store owners')
     }
 

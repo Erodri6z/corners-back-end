@@ -1,6 +1,7 @@
 import { Profile } from '../models/profile.js'
 import { Product } from '../models/product.js'
 import { v2 as cloudinary } from 'cloudinary'
+import { Business } from '../models/business.js'
 
 async function index(req, res) {
   try {
@@ -36,7 +37,7 @@ async function addPhoto(req, res) {
 }
 
 async function requestProduct(req, res) {
-  const business = req.params.businessId
+  const business = await Business.findById(req.params.businessId) 
   const product  = await Product.findById(req.body._id)
 
   
