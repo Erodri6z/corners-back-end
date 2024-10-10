@@ -199,6 +199,27 @@ async function editStock(req, res) {
   } 
 }
 
+async function denyProduct(req, res) {
+  try {
+    const deniedProduct = req.body
+    const business = await Business.findByIdAndUpdate(
+      req.params.id,
+      { $pull : { productsRequested : { deniedProduct }}},
+      { new : true }
+    )
+
+    console.log(business)
+
+
+
+
+
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
 
 export { 
   create,
