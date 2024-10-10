@@ -21,7 +21,7 @@ router.put("/add-product/:id", checkAuth, businessCtrl.approveProduct)
 
 // this one should deny the item from the requested array, removing it from the array
 
-// router.put("/denyProduct/:id", checkAuth, businessCtrl.denyProduct)
+router.put("/denyProduct/:id", checkAuth, businessCtrl.denyProduct)
 
 // TODO: add a route and function to remove items from the array of items.
 

@@ -211,9 +211,6 @@ async function denyProduct(req, res) {
     console.log(business)
 
 
-
-
-
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
