@@ -125,29 +125,48 @@ async function approveProduct(req, res) {
       return res.status(404).json({ message: 'Not found' })
     }
 
-    product.productApproved = true
+    // product.productApproved = true
 
-    business.productsOnSale.push(product)
-    console.log(business)
-    Business.findByIdAndUpdate(req.params.id, business, {new: true})
-    .then(updatedBusiness => {
-      updatedBusiness.populate([
-        {
-          path: "productsOnSale"
-        },{
-          path: "productsOnSale",
-          populate : {
-            path: "products",
-            populate: {
-              path: "productName"
-            }
-          }
-        }
-      ])
-      .then(popBusiness => {
-        res.json(popBusiness)
-      })
+    // business.productsOnSale.push(product)
+    // console.log(business)
+    // Business.findByIdAndUpdate(req.params.id, business, {new: true})
+    // .then(updatedBusiness => {
+    //   updatedBusiness.populate([
+    //     {
+    //       path: "productsOnSale"
+    //     },{
+    //       path: "productsOnSale",
+    //       populate : {
+    //         path: "products",
+    //         populate: {
+    //           path: "productName"
+    //         }
+    //       }
+    //     }
+    //   ])
+    //   .then(popBusiness => {
+    //     res.json(popBusiness)
+    //   })
+    // })
+
+    product.productApproved = true
+    await product.save()
+
+    if (!business.productsOnSale.includes(product._id)) {
+      business.productsOnSale.push(product._id)
+      business.productsRequested.remove(product._id)
+      await business.save()
+    }
+
+    const populatedBusiness = await business.populate({
+      path: 'productsOnSale',
+      populate: {
+        path: 'productName'
+      }
     })
+
+    res.json(populatedBusiness)
+
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
