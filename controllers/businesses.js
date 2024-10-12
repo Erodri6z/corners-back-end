@@ -244,5 +244,6 @@ export {
   approveProduct,
   denyProduct,
   clearProducts,
+  stopCarryingItem,
   editStock
   }
