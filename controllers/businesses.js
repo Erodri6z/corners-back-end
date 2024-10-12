@@ -201,14 +201,15 @@ async function editStock(req, res) {
 
 async function denyProduct(req, res) {
   try {
-    const deniedProduct = req.body
+    const deniedProduct = req.body.id
     const business = await Business.findByIdAndUpdate(
       req.params.id,
-      { $pull : { productsRequested : { deniedProduct }}},
+      { $pull : { productsRequested : deniedProduct }},
       { new : true }
     )
+    console.log(deniedProduct)
 
-    console.log(business)
+    res.json(business)
 
 
   } catch (err) {
