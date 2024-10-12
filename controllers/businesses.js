@@ -218,6 +218,22 @@ async function denyProduct(req, res) {
   }
 }
 
+async function stopCarryingItem(req, res) {
+  try{
+    const removedProduct = req.body.id
+    const business = await Business.findByIdAndUpdate(
+      req.params.id,
+      { $pull : { productsOnSale : removedProduct }},
+      { new : true } 
+    )
+
+    res.json(business)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
 
 export { 
   create,
