@@ -225,6 +225,7 @@ export {
   edit,
   deleteBusiness as delete,
   approveProduct,
+  denyProduct,
   clearProducts,
   editStock
   }
