@@ -38,7 +38,7 @@ async function addPhoto(req, res) {
 
 async function requestProduct(req, res) {
   const business = await Business.findById(req.params.businessId) 
-  const product  = await Product.findById(req.body._id)
+  const product  = await Product.findById(req.body.id)
 
   
   try {
