@@ -125,30 +125,6 @@ async function approveProduct(req, res) {
       return res.status(404).json({ message: 'Not found' })
     }
 
-    // product.productApproved = true
-
-    // business.productsOnSale.push(product)
-    // console.log(business)
-    // Business.findByIdAndUpdate(req.params.id, business, {new: true})
-    // .then(updatedBusiness => {
-    //   updatedBusiness.populate([
-    //     {
-    //       path: "productsOnSale"
-    //     },{
-    //       path: "productsOnSale",
-    //       populate : {
-    //         path: "products",
-    //         populate: {
-    //           path: "productName"
-    //         }
-    //       }
-    //     }
-    //   ])
-    //   .then(popBusiness => {
-    //     res.json(popBusiness)
-    //   })
-    // })
-
     product.productApproved = true
     await product.save()
 
