@@ -12,7 +12,6 @@ router.put("/edit/:id", checkAuth, businessCtrl.edit)
 router.delete("/:id", checkAuth, businessCtrl.delete)
 router.put("/approve-product/:id", checkAuth, businessCtrl.approveProduct)
 
-
 // this one should approve the product to the businesses inventory. adding a copy of the item to the inventory and changing its approval to true
 
 router.put("/deny-product/:id", checkAuth, businessCtrl.denyProduct)

@@ -118,7 +118,7 @@ async function deleteBusiness(req, res) {
 async function approveProduct(req, res) {
   try{
     const business = await Business.findById(req.params.id)
-    const product = await Product.findById(req.body._id)
+    const product = await Product.findById(req.body.id)
     console.log(product)
 
     if (!business || !product) {
